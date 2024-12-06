@@ -1,0 +1,15 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Détails de l'annonce{% endblock %}
+
+{% block body %}
+    <h1>{{ ad.title }}</h1>
+    <p>{{ ad.description }}</p>
+
+    <h2>Photos</h2>
+    <ul>
+        {% for photo in ad.photos %}
+            <li><img src="{{ photo.url }}" alt="Photo de l'annonce"></li>
+        {% endfor %}
+    </ul>
+{% endblock %}

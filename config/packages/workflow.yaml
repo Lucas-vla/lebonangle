@@ -1,0 +1,23 @@
+framework:
+    workflows:
+        advert_workflow:
+            type: 'workflow' # ou 'state_machine', selon le comportement souhaité
+            marking_store:
+                type: 'method'
+                property: 'state' # Correspond à la propriété de l'entité où l'état est stocké
+            supports:
+                - App\Entity\Advert
+            places:
+                - draft
+                - published
+                - rejected
+            transitions:
+                publish:
+                    from: draft
+                    to: published
+                reject:
+                    from: draft
+                    to: rejected
+                unpublish:
+                    from: published
+                    to: rejected
